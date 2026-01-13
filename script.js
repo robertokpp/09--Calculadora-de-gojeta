@@ -8,15 +8,13 @@ const outputVlrT = document.querySelector("#vlrT");
 
 btn.addEventListener("click", calc);
 
-vlr.addEventListener("input", ()=>{
-  vlr.value.replace(/\D+/g, '')
-})
-
+vlr.addEventListener("input", () => {
+  vlr.value = vlr.value.replace(/\D+/g, "");
+});
 
 function calc() {
-
   let selecValue = select.value;
-  const vlrValue = Number(vlr.value)
+  const vlrValue = Number(vlr.value);
   let vlrGorjeta;
 
   if (selecValue === "excelente") {
@@ -29,8 +27,7 @@ function calc() {
     vlrGorjeta = (2 * vlrValue) / 100;
   }
 
-  outputVlrG.value = vlrGorjeta;
-  let soma = (vlrValue + vlrGorjeta);
-  outputVlrT.value = soma
-  console.log(vlrGorjeta);
+  outputVlrG.value = `R$ ${vlrGorjeta} `;
+  let soma = vlrValue + vlrGorjeta;
+  outputVlrT.value = `R$ ${soma}`;
 }
